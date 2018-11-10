@@ -5,7 +5,7 @@ Definition of views.
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
-from app.models import Curso, vestibulares
+from app.models import Curso, vestibular
 from datetime import datetime
 
 def home(request):
@@ -58,7 +58,7 @@ def cadastro_vestibulares(request):
         {
             'title':'Cadastro de vestibulares',
 #            'cursos': ['ADS' , 'SI', 'CC'],
-            'vestibulares': Vestibular.objects.all(),
+            'vestibulares': vestibular.objects.all(),
             'year':datetime.now().year,
         })
     )
