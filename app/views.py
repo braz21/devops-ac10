@@ -5,7 +5,7 @@ Definition of views.
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
-from app.models import Curso, vestibular
+from app.models import Curso
 from datetime import datetime
 
 def home(request):
@@ -49,16 +49,16 @@ def about(request):
         })
     )
 
-def cadastro_vestibulares(request):
+def cadastro_Curso(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/cadastro_vestibulares.html',
+        'app/cadastro_Curso.html',
         context_instance = RequestContext(request,
         {
             'title':'Cadastro de vestibulares',
 #            'cursos': ['ADS' , 'SI', 'CC'],
-            'vestibulares': vestibular.objects.all(),
+            'Curso': Curso.objects.all(),
             'year':datetime.now().year,
         })
     )
